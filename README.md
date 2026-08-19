@@ -3,32 +3,7 @@
 This is your existing ratio-analysis Streamlit app (`AI Gemini.py`) with a
 login screen added in front of it: students must sign in with a
 username/password before they can use the tool, and each generated
-Excel/PDF report is stamped "Prepared by: <name(s)>" — by default just the
-logged-in student, or a whole team if this is group work (see below).
-
-## Group submissions (optional)
-
-The sidebar has a **"Team members for this submission"** field, pre-filled
-with the logged-in student's name. For solo work, students leave it as-is.
-For group work, they replace it with a comma-separated list of everyone on
-the team (up to 4 names) — e.g. `Jane Doe, Alex Smith, Sam Lee`. Whatever's
-in that field is what gets stamped as "Prepared by:" on every Excel/PDF
-export in the app (Summary Dashboard and AI Calc Challenge Round 2 alike),
-so one login can produce a correctly-credited report for the whole group.
-If more than 4 names are entered, only the first 4 appear on reports and
-the app shows a warning so nothing silently gets dropped.
-
-This is remembered between logins so students don't have to retype it every
-time — backed by a small local file (`team_members.json`), separate from
-the Google Sheets progress store the AI Calc Challenge tab uses. That's a
-deliberately lighter-weight choice since this field isn't graded work: on
-your own machine or a self-hosted server it persists indefinitely; on
-Streamlit Community Cloud it survives ordinary logins but isn't guaranteed
-to survive a redeploy (new git push) or occasional platform maintenance,
-since that disk isn't a persistent volume. Worst case, a student retypes
-their team's names once. **Never commit `team_members.json`** — like
-`roster.csv`/`config.yaml`, it's student data and is already in
-`.gitignore`.
+CSV/Excel/PDF report is stamped "Prepared by: <student name>".
 
 ## Files
 
@@ -245,13 +220,8 @@ responses and reflections, treat it like any other student-work record
 - Added a login screen (`streamlit-authenticator`) gating the whole tool —
   nothing past the title screen runs until a valid username/password is
   entered.
-- Sidebar now shows "Logged in as `<name>`" with a **Log out** button, plus
-  an editable "Team members for this submission" field for group work.
-- Excel/PDF exports now include a "Prepared by: `<name(s)>`" line. Plain
-  CSV exports don't carry this (a CSV is just the raw table, no
-  header/subtitle) — if a student submits CSV-only, there's nothing inside
-  the file identifying whose work it is, so the CSV filename or your LMS
-  submission is what ties it back to them.
+- Sidebar now shows "Logged in as `<name>`" with a **Log out** button.
+- CSV/Excel/PDF exports now include a "Prepared by: `<student name>`" line.
 - Replaced the Gemini-API-key AI feature with the bring-your-own-chat
   workflow described above — no `google-genai` dependency, no API key
   fields anywhere in the app.
