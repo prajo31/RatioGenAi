@@ -9,28 +9,14 @@ CSV/Excel/PDF report is stamped "Prepared by: <student name>".
 
 - `app.py` — the app itself (login gate + your original ratio comparison tool, unchanged below the login).
 - `build_roster.py` — turns a plain-text roster CSV into `config.yaml` (hashed passwords).
-- `config.yaml` — generated login file (hashed passwords). Already built from the sample roster so you can try it immediately.
 - `requirements.txt` — everything needed to run the app.
 
-## Try it locally right now
+## Try it locally 
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
-
-
-## Setting up your real class roster
-
-1. Open `roster.csv` (Provided in the class) and replace the sample rows with your actual students —
-   one row per student: `username,name,email,password`.
-   - `username` is what they type to log in (e.g. a student ID or their
-     first initial + last name). Must be unique per student.
-   - `password` is a starting password you assign. Students can't change it
-     from inside the app — to reset someone's password, edit their row and
-     rerun the build script.
-
-
 ## AI interpretation: bring-your-own-chat, no API key
 
 This app does **not** call any AI API and never asks for a key — nothing
