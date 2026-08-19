@@ -9,7 +9,6 @@ CSV/Excel/PDF report is stamped "Prepared by: <student name>".
 
 - `app.py` — the app itself (login gate + your original ratio comparison tool, unchanged below the login).
 - `build_roster.py` — turns a plain-text roster CSV into `config.yaml` (hashed passwords).
-- `roster.csv` — **sample** roster with 2 demo logins. Replace with your real class list.
 - `config.yaml` — generated login file (hashed passwords). Already built from the sample roster so you can try it immediately.
 - `requirements.txt` — everything needed to run the app.
 
@@ -20,45 +19,17 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Log in with one of the sample accounts from `roster.csv`:
-
-| username | password |
-|---|---|
-| demo_student | ChangeMe123! |
-| jdoe | ChangeMe123! |
 
 ## Setting up your real class roster
 
-1. Open `roster.csv` and replace the sample rows with your actual students —
+1. Open `roster.csv` (Provided in the class) and replace the sample rows with your actual students —
    one row per student: `username,name,email,password`.
    - `username` is what they type to log in (e.g. a student ID or their
      first initial + last name). Must be unique per student.
    - `password` is a starting password you assign. Students can't change it
      from inside the app — to reset someone's password, edit their row and
      rerun the build script.
-2. Regenerate the login file:
-   ```bash
-   python build_roster.py
-   ```
-   This overwrites `config.yaml` with freshly hashed passwords for everyone
-   in `roster.csv`.
-3. **Never share or commit `roster.csv` or `config.yaml` publicly** —
-   `roster.csv` has plain-text passwords, and `config.yaml` has the hashed
-   versions plus a cookie secret. Keep both private (e.g. add them to
-   `.gitignore` if this becomes a git repo).
 
-## Deploying to Streamlit Community Cloud
-
-Don't upload `config.yaml` to a public repo. Instead:
-
-1. Push `app.py`, `build_roster.py`, and `requirements.txt` to a repo
-   (leave `roster.csv`/`config.yaml` out, or keep the repo private).
-2. Deploy the app on share.streamlit.io.
-3. Run `python build_roster.py` locally, and copy the TOML block it prints
-   at the end into the app's **Settings → Secrets** box on Streamlit Cloud.
-   That gives the deployed app the same login roster without it ever
-   touching your public repo.
-4. Redeploy/reboot the app after saving secrets.
 
 ## AI interpretation: bring-your-own-chat, no API key
 
