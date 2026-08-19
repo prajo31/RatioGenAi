@@ -161,7 +161,7 @@ mechanism you already use for login credentials.
 username/ticker/year holds their Round 1 and Round 2 answers (pasted AI
 responses, transcribed values, predictions, 10-K source citation, AI
 tool/timestamp disclosure, reflections) as they type — no separate "Save"
-button required. A small "💾 Progress autosaved at `<time>`" line appears
+button required. A small " Progress autosaved at `<time>`" line appears
 under each company once it's working. If Sheets isn't configured, or a save
 attempt fails, the app says so plainly instead of failing silently, and
 everything still works normally for the current browser session — students
@@ -182,7 +182,7 @@ responses and reflections, treat it like any other student-work record
 - Replaced the Gemini-API-key AI feature with the bring-your-own-chat
   workflow described above — no `google-genai` dependency, no API key
   fields anywhere in the app.
-- Added a new **🧪 AI Calc Challenge** tab with two rounds, a
+- Added a new **AI Calc Challenge** tab with two rounds, a
   "predict-before-you-look" gate and four-way comparison in Round 2,
   AI-tool + timestamp disclosure on both rounds, per-ratio comparison
   charts, an optional Google Sheets autosave so students can resume across
