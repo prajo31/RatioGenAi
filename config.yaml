@@ -1,0 +1,14 @@
+cookie:
+  expiry_days: 7
+  key: ba60432eb101f4511f6d36869cd28cd3
+  name: ratio_tool_auth
+credentials:
+  usernames:
+    demo_student:
+      email: demo@example.edu
+      name: Demo Student
+      password: $2b$12$YlaL/qzXEptNRn4xVnBiz.xnG2d0M8i.7iZPfEpOoLxVEsKMqatUm
+    jdoe:
+      email: jdoe@example.edu
+      name: Jane Doe
+      password: $2b$12$b/bChwkY9rce3IAOKY31b.Bn2yuLZvLvYPRPQiiiaYg5l.6kyHt9C
