@@ -1,0 +1,10 @@
+streamlit
+streamlit-authenticator
+pyyaml
+bcrypt
+pandas
+yfinance
+openpyxl
+reportlab
+gspread
+google-auth
