@@ -46,7 +46,7 @@ provider.
 This is a second, separate AI exercise — additive, doesn't touch anything
 else in the app. The Summary Dashboard's "AI Interpretation" feature (above)
 hands the AI ratios the app already calculated and asks it to comment on
-them. The new **🧪 AI Calc Challenge** tab instead tests whether the AI can
+them. The new **AI Calc Challenge** tab instead tests whether the AI can
 calculate — and even research — the ratios itself, across two rounds per
 company.
 
